@@ -1,50 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Header } from './components'; //Header를 components에서 불러오는대 component/index.js는 해당 폴더 내부에서 설정되어있는
+// component들에 대한 진입점 역할을 한다.
+import { PostContainer } from './containers' //components와 마찬가지로 containers/index.js가 진입점 역할을 한다.
 import './App.css';
 
-
-class Counter extends Component {
-
-	constructor(props){
-		super(props);
-		this.state = {
-			value : 0
-		};
-		this.handleClick = this.handleClick.bind(this)
-	}
-
-	handleClick(){
-		this.setState({
-			value : this.state.value + 1
-		})
-		// this.state.value = this.state.value + 1;
-		// this.forceUpdate();
-	}
+class App extends Component {
 
 	render(){
 		return (
 			<div>
-				<h2>{this.state.value}</h2>
-				<button onClick = {this.handleClick}>Press me</button>
+				<Header />
+				<PostContainer />
 			</div>
-
-		)
+		);
 	}
-}
-
-
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-	      {this.props.name}
-	      <div className="anotherApp">
-		      <Counter></Counter>
-	      </div>
-      </div>
-    );
-  }
 }
 
 export default App;
