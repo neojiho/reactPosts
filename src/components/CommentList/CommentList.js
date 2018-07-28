@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './CommentList.css';
 import {Comment} from '../';
 
-/*class CommentList extends Component {
+class CommentList extends Component {
 
 	commentList () {
 		this.props.comments.map(
@@ -19,11 +19,21 @@ import {Comment} from '../';
 	render () {
 		return (
 			<ul className ='CommentList'>
-				{this.commentList}
+				{/*this.commentList*/ /*또는 아래와같이 씀.*/}
+				{this.props.comments.map(
+					(comment, index) => (
+						<Comment
+							name={comment.name}
+							body={comment.body}
+							key={index}
+						/>
+					)
+				)}
 			</ul>
 		)
 	}
-}*/
+}
+/*
 
 const CommentList = ({comments}) => { //props.attr를 받아 올때 {comments}와 같이 표기하는듯?
 
@@ -44,5 +54,6 @@ const CommentList = ({comments}) => { //props.attr를 받아 올때 {comments}�
         </ul>
     );
 };
+*/
 
 export default CommentList;
